@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SpillBucketAppGUI.MainWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Toolbar -->
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Bitmap Size:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox x:Name="BitmapWidthInput" Width="50" Text="10" />
+                <TextBlock Text="x" VerticalAlignment="Center" Margin="5,0,5,0"/>
+                <TextBox x:Name="BitmapHeightInput" Width="50" Text="10" />
+                <Button Content="Resize Bitmap" Click="OnResizeBitmapClicked" Margin="10,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Select Algorithm:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="AlgorithmSelector" Width="150" SelectedIndex="0">
+                    <ComboBoxItem>Iterative Flood-Fill</ComboBoxItem>
+                    <ComboBoxItem>Recursive Flood-Fill</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text="Select Color:" VerticalAlignment="Center" Margin="20,0,10,0"/>
+                <ComboBox x:Name="ColorSelector" Width="100" SelectedIndex="0">
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Bitmap Canvas -->
+        <Canvas x:Name="BitmapCanvas" Grid.Row="1" Background="LightGray" PointerPressed="OnBitmapCanvasClicked" Margin="10"/>
+    </Grid>
+</Window>
